@@ -40,3 +40,11 @@ build/
 # 系统文件
 .DS_Store
 Thumbs.db
+
+.streamlit
+**/node_modules/
+test*
+**/package-lock.json
+**/tsconfig.json
+poetry.lock
+pyproject.toml

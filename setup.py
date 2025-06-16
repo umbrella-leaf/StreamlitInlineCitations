@@ -20,7 +20,7 @@ setuptools.setup(
     description="streamlit custom components for inline citations",
     long_description=readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/nicedouble/StreamlitAntdComponents",
+    url="https://github.com/umbrella-leaf/StreamlitInlineCitations.git",
     packages=setuptools.find_packages(),
     include_package_data=True,
     python_requires=">=3.8",

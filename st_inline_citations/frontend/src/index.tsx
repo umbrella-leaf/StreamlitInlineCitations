@@ -34,7 +34,7 @@ class InlineCitations extends StreamlitComponentBase<InlineCitationsProps> {
     const processedText = this.preprocessText(text);
 
     return (
-      <div style={{display: "flex"}}>
+      <div style={{display: "flex", flexDirection: "column"}}>
         <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
             components={{

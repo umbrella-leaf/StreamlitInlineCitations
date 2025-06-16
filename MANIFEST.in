@@ -1,1 +1,1 @@
-recursive-include streamlit_antd_components/frontend/build *
+recursive-include st_inline_citations/frontend/build *

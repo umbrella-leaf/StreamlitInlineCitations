@@ -9,7 +9,7 @@ if not _RELEASE:
     # 开发模式：从 React 开发服务器加载前端
     _inline_citations_func = components.declare_component(
         "inline_citations",
-        url="http://localhost:3001",
+        url="http://localhost:3000",
     )
 else:
     # 生产模式：从静态构建文件加载前端
@@ -17,7 +17,7 @@ else:
     build_dir = os.path.join(parent_dir, "frontend/build")
     _inline_citations_func = components.declare_component("inline_citations", path=build_dir)
 
-def inline_citations(text: str, key=None):
+def inline_citations(text: str, think_text: str = None, key: str=None):
     """
     创建一个可以渲染带内联、可点击引用标记的文本组件。
 
@@ -34,7 +34,7 @@ def inline_citations(text: str, key=None):
         如果用户点击了一个引用标记，则返回该引用的编号（字符串格式）。
         否则返回 None。
     """
-    component_value = _inline_citations_func(text=text, key=key, default=None)
+    component_value = _inline_citations_func(text=text, think_text=think_text, key=key, default=None)
     return component_value
 
 # (可选) 添加一个小小的测试用例，方便直接运行这个文件来测试

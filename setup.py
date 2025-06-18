@@ -15,7 +15,7 @@ def readme() -> str:
 
 setuptools.setup(
     name="streamlit-inline-citations",
-    version="0.0.1",
+    version="0.0.2",
     author="liuzhongnuo",
     description="streamlit custom components for inline citations",
     long_description=readme(),

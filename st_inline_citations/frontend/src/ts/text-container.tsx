@@ -1,6 +1,10 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
+import 'katex/dist/katex.min.css';
+import {preprocessLaTeX} from "../utils/preprocess";
 
 interface TextContainerProps {
   text: string;
@@ -8,10 +12,12 @@ interface TextContainerProps {
   onCitationClick: (refNum: number) => void;
 }
 
-const TextContainer: React.FC<TextContainerProps> = ({ text, think, onCitationClick }) => (
-  <div className={`container${think ? " think" : ""}`}>
+const TextContainer: React.FC<TextContainerProps> = ({ text, think, onCitationClick }) => {
+  text = preprocessLaTeX(text);
+  return <div className={`container${think ? " think" : ""}`}>
     <ReactMarkdown
-      rehypePlugins={[rehypeRaw]}
+      rehypePlugins={[rehypeRaw, rehypeKatex]}
+      remarkPlugins={[remarkMath]}
       components={{
         sup: ({node, children, ...props}) => {
           const refNum = node?.properties?.["dataRef"];
@@ -40,6 +46,6 @@ const TextContainer: React.FC<TextContainerProps> = ({ text, think, onCitationCl
       {text}
     </ReactMarkdown>
   </div>
-);
+};
 
 export default TextContainer;

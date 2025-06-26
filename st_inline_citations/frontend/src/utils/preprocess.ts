@@ -40,6 +40,7 @@ export function preprocessLaTeX(content: string): string {
   content = content.replace(/\$(?=\d)/g, '\\$');
   content = content.replace(/<<LATEX_(\d+)>>/g, (_, index) => latexExpressions[parseInt(index)]);
   content = content.replace(/<<CODE_BLOCK_(\d+)>>/g, (_, index) => codeBlocks[parseInt(index)]);
+  content = content.replace(/\u00B7/g, '\u22C5');
   content = escapeBrackets(content);
   content = escapeMhchem(content);
 

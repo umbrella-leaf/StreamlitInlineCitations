@@ -17,7 +17,7 @@ else:
     build_dir = os.path.join(parent_dir, "frontend/build")
     _inline_citations_func = components.declare_component("inline_citations", path=build_dir)
 
-def inline_citations(text: str, think_text: str = None, key: str=None):
+def inline_citations(text: str, think_text: str = "", key: str=None):
     """
     创建一个可以渲染带内联、可点击引用标记的文本组件。
 

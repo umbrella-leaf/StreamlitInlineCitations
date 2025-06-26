@@ -8,7 +8,7 @@ import {
 import TextContainer from "./ts/text-container"
 
 interface InlineCitationsProps {
-  think: string;
+  think_text: string;
   text: string;
 }
 

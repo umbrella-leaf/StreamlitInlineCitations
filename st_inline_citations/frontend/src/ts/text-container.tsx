@@ -19,6 +19,11 @@ const TextContainer: React.FC<TextContainerProps> = ({ text, think, onCitationCl
       rehypePlugins={[rehypeRaw, rehypeKatex]}
       remarkPlugins={[remarkMath]}
       components={{
+        a: ({node, children, ...props}) => (
+          <a {...props} target="_blank" rel="noopener noreferrer">
+            {children}
+          </a>
+        ),
         sup: ({node, children, ...props}) => {
           const refNum = node?.properties?.["dataRef"];
           return (
